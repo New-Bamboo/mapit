@@ -16,7 +16,7 @@ COUNTRY: 'GB'
 
 # An EPSG code for what the areas are stored as, e.g. 27700 is OSGB, 4326 for WGS84.
 # Optional, defaults to 4326.
-AREA_SRID: 27700
+AREA_SRID: 4326
 
 # A secret key for this particular Django installation.
 # Set this to a random string -- the longer, the better.
