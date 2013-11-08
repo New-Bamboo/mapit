@@ -9,6 +9,7 @@
 /dist
 *~
 /.coverage
+/.env
 
 .sass-cache
 /mapit/static/mapit/css
@@ -16,4 +17,3 @@
 
 # This is the name that the install notes suggest be used for the virtualenv
 .venv
-

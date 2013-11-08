@@ -2,6 +2,7 @@ import os
 import sys
 import yaml
 import django
+import dj_database_url
 
 # Path to here is something like
 # /data/vhost/<vhost>/<repo>/<project_name>/settings.py
@@ -65,20 +66,18 @@ if config.get('BUGS_EMAIL'):
     )
     MANAGERS = ADMINS
 
+# Parse database configuration from $DATABASE_URL
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': config.get('MAPIT_DB_NAME', 'mapit'),
-        'USER': config.get('MAPIT_DB_USER', 'mapit'),
-        'PASSWORD': config.get('MAPIT_DB_PASS', ''),
-        'HOST': config.get('MAPIT_DB_HOST', ''),
-        'PORT': config.get('MAPIT_DB_PORT', ''),
-    }
+    'default': dj_database_url.config()
 }
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = config.get('DJANGO_SECRET_KEY', '')
 
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
 ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
@@ -202,4 +201,3 @@ INSTALLED_APPS = (
     'south',
     'mapit',
 )
-
