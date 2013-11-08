@@ -4,7 +4,7 @@
 /conf/httpd.conf
 /conf/httpd.conf.deployed
 /web/down.html
-/data/cache
+/data
 /MANIFEST
 /dist
 *~
@@ -12,6 +12,8 @@
 
 .sass-cache
 /mapit/static/mapit/css
+/staticfiles
 
 # This is the name that the install notes suggest be used for the virtualenv
 .venv
+

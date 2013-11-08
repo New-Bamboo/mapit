@@ -6,3 +6,4 @@ BeautifulSoup
 South
 GDAL
 Shapely
+dj-static
